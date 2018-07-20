@@ -1,0 +1,25 @@
+﻿<Page
+    x:Class="UWPApp.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:UWPApp"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel HorizontalAlignment="Center">
+
+        <TextBox x:Name="txtTest" Width="200" Margin="0,50,0,0" HorizontalAlignment="Left"></TextBox>
+
+        <ComboBox x:Name="cbTest" Width="200" Margin="0,10,0,0">
+            <ComboBoxItem>Test Item 1</ComboBoxItem>
+            <ComboBoxItem>Test Item 2</ComboBoxItem>
+            <ComboBoxItem>Test Item 3</ComboBoxItem>
+        </ComboBox>
+
+        <CheckBox x:Name="chkTest" Margin="0,10,0,0"></CheckBox>
+
+        <DatePicker x:Name="pickerFrom" AutomationProperties.AutomationId="pickerFrom"  Margin="0,10,0,0"></DatePicker>
+
+    </StackPanel>
+</Page>
