@@ -9,6 +9,7 @@ namespace SeleniumTest
     [TestClass]
     public class EdgeBrowserWebTest
     {
+
         // Install NuGet packages Selenium.WebDriver and SeleniumExtras.WaitHelpers
 
         [TestMethod]
