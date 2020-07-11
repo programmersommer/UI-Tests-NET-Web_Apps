@@ -13,8 +13,8 @@ namespace WPFTest
         public void RunWPFApp()
         {
             ProcessStartInfo psi = new ProcessStartInfo();
-            psi.FileName = @"D:\BestPractices\UI_Tests_NET_Apps\WPFApp\bin\Debug\WPFApp.exe";
-            psi.WorkingDirectory = @"D:\BestPractices\UI_Tests_NET_Apps\WPFApp\bin\Debug\";
+            psi.FileName = @"D:\BestPractices\UI_Tests_NET_Apps\WPFCoreApp\bin\Debug\WPFCoreApp.exe";
+            psi.WorkingDirectory = @"D:\BestPractices\UI_Tests_NET_Apps\WPFCoreApp\bin\Debug\";
 
             using (Process process = Process.Start(psi))
             {
