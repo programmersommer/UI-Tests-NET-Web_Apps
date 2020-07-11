@@ -13,8 +13,8 @@ namespace WPFTest
         public void RunWPFApp()
         {
             ProcessStartInfo psi = new ProcessStartInfo();
-            psi.FileName = @"D:\AutomationUI-master\WPFApp\bin\Debug\WPFApp.exe";
-            psi.WorkingDirectory = @"D:\AutomationUITesting\WPFApp\bin\Debug\";
+            psi.FileName = @"D:\BestPractices\UI_Tests_NET_Apps\WPFApp\bin\Debug\WPFApp.exe";
+            psi.WorkingDirectory = @"D:\BestPractices\UI_Tests_NET_Apps\WPFApp\bin\Debug\";
 
             using (Process process = Process.Start(psi))
             {
@@ -85,7 +85,8 @@ namespace WPFTest
                 var pickerFrom = app.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "pickerFrom"));
                 pickerFrom.SetFocus();
                 ((ExpandCollapsePattern)pickerFrom.GetCurrentPattern(ExpandCollapsePatternIdentifiers.Pattern)).Expand();
-                var pickerFromItem = pickerFrom.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.NameProperty, "Friday, July 20, 2018"));
+                // select date in current month
+                var pickerFromItem = pickerFrom.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.NameProperty, "Friday, July 17, 2020"));
                 (pickerFromItem.GetCurrentPattern(InvokePattern.Pattern) as InvokePattern).Invoke();
                 ((ExpandCollapsePattern)pickerFrom.GetCurrentPattern(ExpandCollapsePatternIdentifiers.Pattern)).Collapse();
 

@@ -17,11 +17,13 @@ namespace SeleniumTest
         {
             try
             {
-                using (var driver = new EdgeDriver(@"D:\AutomationUI-master\SeleniumTest"))
+                // download driver for your version from
+                // https://msedgewebdriverstorage.z22.web.core.windows.net/
+                using (var driver = new EdgeDriver(@"D:\BestPractices\UI_Tests_NET_Apps\SeleniumTest"))
                 {
                     driver.Navigate().GoToUrl
-                        (@"https://www.onliner.by/");
-                    var link = driver.FindElement(By.PartialLinkText("Публичный"));
+                        (@"https://thecodinglove.com/");
+                    var link = driver.FindElement(By.PartialLinkText("Next"));
                     var jsToBeExecuted = $"window.scroll(0, {link.Location.Y});";
                     ((IJavaScriptExecutor)driver).ExecuteScript(jsToBeExecuted);
 
