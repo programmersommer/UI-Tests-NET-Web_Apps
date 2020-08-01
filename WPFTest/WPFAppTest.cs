@@ -1,8 +1,8 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Automation;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace WPFTest
 {
@@ -40,7 +40,7 @@ namespace WPFTest
 
                 var txtTest = app.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "txtTest"));
                 txtTest.SetFocus();
-                ((ValuePattern)txtTest.GetCurrentPattern(ValuePattern.Pattern) as ValuePattern).SetValue("La-la-la");
+                ((ValuePattern)txtTest.GetCurrentPattern(ValuePattern.Pattern)).SetValue("La-la-la");
 
 
                 // CheckBox
@@ -59,7 +59,7 @@ namespace WPFTest
                 Thread.Sleep(500);
 
                 var listItem = cbTest.FindFirst(TreeScope.Subtree, new PropertyCondition(AutomationElement.NameProperty, "Test Item 2"));
-                ((SelectionItemPattern)listItem.GetCurrentPattern(SelectionItemPattern.Pattern) as SelectionItemPattern).Select();
+                ((SelectionItemPattern)listItem.GetCurrentPattern(SelectionItemPattern.Pattern)).Select();
                 ((ExpandCollapsePattern)cbTest.GetCurrentPattern(ExpandCollapsePatternIdentifiers.Pattern)).Collapse();
 
 
@@ -76,7 +76,7 @@ namespace WPFTest
                 var controlViewWalker = TreeWalker.ControlViewWalker;
                 listItem2 = controlViewWalker.GetParent(listItem2);
 
-                ((SelectionItemPattern)listItem2.GetCurrentPattern(SelectionItemPattern.Pattern) as SelectionItemPattern).Select();
+                ((SelectionItemPattern)listItem2.GetCurrentPattern(SelectionItemPattern.Pattern)).Select();
                 ((ExpandCollapsePattern)cbCountry.GetCurrentPattern(ExpandCollapsePatternIdentifiers.Pattern)).Collapse();
 
 
@@ -85,6 +85,7 @@ namespace WPFTest
                 var pickerFrom = app.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "pickerFrom"));
                 pickerFrom.SetFocus();
                 ((ExpandCollapsePattern)pickerFrom.GetCurrentPattern(ExpandCollapsePatternIdentifiers.Pattern)).Expand();
+
                 // select date in current month
                 var pickerFromItem = pickerFrom.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.NameProperty, "Friday, July 17, 2020"));
                 (pickerFromItem.GetCurrentPattern(InvokePattern.Pattern) as InvokePattern).Invoke();
@@ -93,6 +94,7 @@ namespace WPFTest
                 process.Kill();
             }
 
+            Assert.IsTrue(true);
         }
     }
 }

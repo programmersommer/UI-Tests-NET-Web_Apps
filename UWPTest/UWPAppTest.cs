@@ -1,8 +1,7 @@
-﻿using System;
+﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
 using System.Threading;
 using System.Windows.Automation;
-using Microsoft.VisualStudio.TestTools.UnitTesting;
 
 namespace UWPTest
 {
@@ -29,7 +28,7 @@ namespace UWPTest
 
                 var txtTest = app.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "txtTest"));
                 txtTest.SetFocus();
-                ((ValuePattern)txtTest.GetCurrentPattern(ValuePattern.Pattern) as ValuePattern).SetValue("La-la-la");
+                ((ValuePattern)txtTest.GetCurrentPattern(ValuePattern.Pattern)).SetValue("La-la-la");
 
 
                 // ComboBox
@@ -40,7 +39,7 @@ namespace UWPTest
                 Thread.Sleep(500);
 
                 var listItem = comboClients.FindFirst(TreeScope.Subtree, new PropertyCondition(AutomationElement.NameProperty, "Test Item 2"));
-                ((SelectionItemPattern)listItem.GetCurrentPattern(SelectionItemPattern.Pattern) as SelectionItemPattern).Select();
+                ((SelectionItemPattern)listItem.GetCurrentPattern(SelectionItemPattern.Pattern)).Select();
 
                 ((ExpandCollapsePattern)comboClients.GetCurrentPattern(ExpandCollapsePatternIdentifiers.Pattern)).Collapse();
 
@@ -61,15 +60,15 @@ namespace UWPTest
 
                 var monthLoopingSelector = app.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "MonthLoopingSelector"));
                 var month = monthLoopingSelector.FindFirst(TreeScope.Subtree, new PropertyCondition(AutomationElement.NameProperty, "September"));
-                ((SelectionItemPattern)month.GetCurrentPattern(SelectionItemPattern.Pattern) as SelectionItemPattern).Select();
+                ((SelectionItemPattern)month.GetCurrentPattern(SelectionItemPattern.Pattern)).Select();
 
                 var dayLoopingSelector = app.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "DayLoopingSelector"));
                 var day = dayLoopingSelector.FindFirst(TreeScope.Subtree, new PropertyCondition(AutomationElement.NameProperty, "28"));
-                ((SelectionItemPattern)day.GetCurrentPattern(SelectionItemPattern.Pattern) as SelectionItemPattern).Select();
+                ((SelectionItemPattern)day.GetCurrentPattern(SelectionItemPattern.Pattern)).Select();
 
                 var yearLoopingSelector = app.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "YearLoopingSelector"));
                 var year = yearLoopingSelector.FindFirst(TreeScope.Subtree, new PropertyCondition(AutomationElement.NameProperty, "2019"));
-                ((SelectionItemPattern)year.GetCurrentPattern(SelectionItemPattern.Pattern) as SelectionItemPattern).Select();
+                ((SelectionItemPattern)year.GetCurrentPattern(SelectionItemPattern.Pattern)).Select();
 
 
                 // Button
@@ -79,6 +78,8 @@ namespace UWPTest
 
                 process.Kill();
             }
+
+            Assert.IsTrue(true);
         }
     }
 }
