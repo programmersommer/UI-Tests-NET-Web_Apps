@@ -14,4 +14,14 @@
     <PackageReference Include="Selenium.WebDriver" Version="3.13.1" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="chromedriver.exe">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="ScreenShots\" />
+  </ItemGroup>
+
 </Project>
