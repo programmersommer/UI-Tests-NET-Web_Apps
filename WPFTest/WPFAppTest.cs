@@ -87,7 +87,7 @@ namespace WPFTest
                 ((ExpandCollapsePattern)pickerFrom.GetCurrentPattern(ExpandCollapsePatternIdentifiers.Pattern)).Expand();
 
                 // select date in current month
-                var pickerFromItem = pickerFrom.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.NameProperty, "Friday, July 17, 2020"));
+                var pickerFromItem = pickerFrom.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.NameProperty, "Friday, November 20, 2020"));
                 (pickerFromItem.GetCurrentPattern(InvokePattern.Pattern) as InvokePattern).Invoke();
                 ((ExpandCollapsePattern)pickerFrom.GetCurrentPattern(ExpandCollapsePatternIdentifiers.Pattern)).Collapse();
 

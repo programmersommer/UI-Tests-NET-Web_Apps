@@ -23,7 +23,7 @@ namespace UWPTest
                 var root = AutomationElement.RootElement;
                 var app = root.FindFirst(TreeScope.Children, new PropertyCondition(AutomationElement.NameProperty, "UWPApp"));
 
-
+                
                 // TextBox
 
                 var txtTest = app.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "txtTest"));
@@ -36,6 +36,7 @@ namespace UWPTest
                 var comboClients = app.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "cbTest"));
                 comboClients.SetFocus();
                 ((ExpandCollapsePattern)comboClients.GetCurrentPattern(ExpandCollapsePatternIdentifiers.Pattern)).Expand();
+                
                 Thread.Sleep(500);
 
                 var listItem = comboClients.FindFirst(TreeScope.Subtree, new PropertyCondition(AutomationElement.NameProperty, "Test Item 2"));
@@ -43,6 +44,7 @@ namespace UWPTest
 
                 ((ExpandCollapsePattern)comboClients.GetCurrentPattern(ExpandCollapsePatternIdentifiers.Pattern)).Collapse();
 
+                Thread.Sleep(500);
 
                 // CheckBox
 
@@ -50,6 +52,7 @@ namespace UWPTest
                 chkTest.SetFocus();
                 (chkTest.GetCurrentPattern(TogglePattern.Pattern) as TogglePattern).Toggle();
 
+                Thread.Sleep(500);
 
                 // DatePicker
 
@@ -58,25 +61,24 @@ namespace UWPTest
                 var pickerButton = pickerFrom.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "FlyoutButton"));
                 (pickerButton.GetCurrentPattern(InvokePattern.Pattern) as InvokePattern).Invoke();
 
-                var monthLoopingSelector = app.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "MonthLoopingSelector"));
-                var month = monthLoopingSelector.FindFirst(TreeScope.Subtree, new PropertyCondition(AutomationElement.NameProperty, "September"));
+                var monthLoopingSelector = root.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "MonthLoopingSelector"));
+                var month = monthLoopingSelector.FindFirst(TreeScope.Subtree, new PropertyCondition(AutomationElement.NameProperty, "November"));
                 ((SelectionItemPattern)month.GetCurrentPattern(SelectionItemPattern.Pattern)).Select();
 
-                var dayLoopingSelector = app.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "DayLoopingSelector"));
-                var day = dayLoopingSelector.FindFirst(TreeScope.Subtree, new PropertyCondition(AutomationElement.NameProperty, "28"));
+                var dayLoopingSelector = root.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "DayLoopingSelector"));
+                var day = dayLoopingSelector.FindFirst(TreeScope.Subtree, new PropertyCondition(AutomationElement.NameProperty, "30"));
                 ((SelectionItemPattern)day.GetCurrentPattern(SelectionItemPattern.Pattern)).Select();
 
-                var yearLoopingSelector = app.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "YearLoopingSelector"));
-                var year = yearLoopingSelector.FindFirst(TreeScope.Subtree, new PropertyCondition(AutomationElement.NameProperty, "2019"));
+                var yearLoopingSelector = root.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "YearLoopingSelector"));
+                var year = yearLoopingSelector.FindFirst(TreeScope.Subtree, new PropertyCondition(AutomationElement.NameProperty, "2020"));
                 ((SelectionItemPattern)year.GetCurrentPattern(SelectionItemPattern.Pattern)).Select();
-
 
                 // Button
 
-                var acceptButton = app.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "AcceptButton"));
+                var acceptButton = root.FindFirst(TreeScope.Descendants, new PropertyCondition(AutomationElement.AutomationIdProperty, "AcceptButton"));
                 (acceptButton.GetCurrentPattern(InvokePattern.Pattern) as InvokePattern).Invoke();
 
-                process.Kill();
+                process.Close();
             }
 
             Assert.IsTrue(true);

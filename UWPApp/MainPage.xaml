@@ -19,7 +19,7 @@
 
         <CheckBox x:Name="chkTest" Margin="0,10,0,0"></CheckBox>
 
-        <DatePicker x:Name="pickerFrom" AutomationProperties.AutomationId="pickerFrom"  Margin="0,10,0,0"></DatePicker>
+        <DatePicker x:Name="pickerFrom" AutomationProperties.AutomationId="pickerFrom" Margin="0,10,0,0"></DatePicker>
 
     </StackPanel>
 </Page>
